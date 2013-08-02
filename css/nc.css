@@ -1,0 +1,136 @@
+/* 
+    Document   : style
+    Created on : Jan 18, 2013, 3:44:42 PM
+    Author     : Marco Dalla Vecchia (m.dallavecchia AT enginsoft.it)
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.casestudy a {
+    font-weight: bold;
+}
+
+.casestudy a:hover {
+    text-decoration: underline;
+}
+
+.casestudy {
+    
+}
+
+div.message {
+    text-align: center;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+div.info {
+    /*border: 1px skyblue solid;*/
+    color: black;
+    background-color: lightskyblue;
+}
+
+div.error {
+    /*border: 1px coral solid;*/
+    color: black;
+    background-color: lightcoral;
+}
+
+#testcases_block .casestudy {
+    background-color: #EEE;
+    padding: 6px;
+    border-width: 0px;
+    border-color: gray;
+    border-style: solid;
+    
+    /*margin: 10px;*/
+    margin-bottom: 10px;
+}
+
+#testcases_block .casestudy .caseheader .name {
+    font-size: 24px;
+}
+
+#testcases_block .casestudy .caseheader .expander {
+    vertical-align: bottom;
+    height: 24px;
+    display: inline-block;
+}
+
+/*
+#testcases_block .casestudy .script {
+    border-width: 2px;
+    border-color: grey;
+    border-style: dotted;
+    padding: 4px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: lightskyblue;
+}
+#testcases_block .casestudy .script:hover {
+    background-color: skyblue;
+    border-color: black;
+    border-width: 2px;
+}
+*/
+
+table.jobstable, table.scriptstable {
+    border: 1px gray solid;
+    padding-top: 4px;
+    background-color: white; 
+}
+
+table.jobstable td, table.scriptstable td {
+    padding: 0 0.5em;
+}
+
+table caption {
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 4px;
+}
+
+tr.output_tr {
+    height: auto;
+}
+
+pre {
+    font-family: monospace;
+    font-size: 12px;
+}
+
+pre.wrap {
+    word-wrap: break-word;
+}
+
+pre.shown {
+    background-color: white;
+    font-family: monospace;
+    font-size: 12px;
+    border: black solid 1px;
+    padding-left: 6px;
+    /*min-height: 50px;*/
+    max-height: 200px;
+    
+    overflow: scroll;
+    width: 1000px;
+}
+
+pre.shown span.closebutton {
+    position: absolute;
+    left: 1000px;
+    border: 1px solid black;
+    padding: 1px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+div.jobs > div {
+    overflow: hidden;
+    white-space: nowrap;
+}

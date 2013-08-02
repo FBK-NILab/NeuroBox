@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<info>
+	<id>neurocloud</id>
+	<name>Neurocloud</name>
+	<description>Neurocloud app description here</description>
+	<version>1.0.0</version>
+	<licence></licence>
+	<author>Neurocloud developers</author>
+	<require>4.5</require>
+    <types>
+        <filesystem />
+    </types>
+</info>
