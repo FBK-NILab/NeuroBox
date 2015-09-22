@@ -22,7 +22,7 @@ function get_public_key() {
 </script>
 
 <div class="personalblock">
-    <strong>Neurocloud users public keys</strong>
+    <strong>NeuroBox users public keys</strong>
 <?php
 /*
 $datadir = OC_Config::getValue("datadirectory");
