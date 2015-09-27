@@ -12,7 +12,7 @@ OC_Util::addStyle('files', "files");
 OC_Util::addStyle('neurocloud', "nc");
 
 OC_App::setActiveNavigationEntry( 'neurocloud_index');
-$tmpl = new OC_Template( 'neurocloud', 'main', 'user');
+$tmpl = new OC_Template('neurocloud', 'main', 'user');
 
 $message = "";
 $action = "launch";

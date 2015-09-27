@@ -181,7 +181,7 @@ function get_used_space_remote() {
  */
 function get_user_jobs($user) {
     include "neurocloud/config.inc.php";
-    $basedir = sprintf($NC_CONFIG["local_exec_dir"],$user);
+    $basedir = sprintf($NC_CONFIG["local_exec_dir"], $user);
     $jobs = array();
     if (is_dir($basedir)) {
         $dh = opendir($basedir);
