@@ -2,10 +2,10 @@
 <info>
 	<id>neurocloud</id>
 	<name>NeuroBox</name>
-	<description>NeurocBox app description here</description>
+	<description>Neurobox app description here</description>
 	<version>1.0.0</version>
 	<licence></licence>
-	<author>NeuroBox developers</author>
+	<author>Neurobox developers</author>
 	<require>4.5</require>
     <types>
         <filesystem />

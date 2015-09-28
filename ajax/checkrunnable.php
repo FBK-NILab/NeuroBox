@@ -13,7 +13,7 @@ require_once 'neurocloud/lib/hooks.php';
 $study=$_POST["study"];
 
 
-#error_log(print_r($_SESSION["nc_sync_paths"],true));
+//#error_log(print_r($_SESSION["nc_sync_paths"],true));
 
 if (OC_Neurocloud::is_study_runnable($study)) {
     echo "1";

@@ -77,8 +77,8 @@ function create_ssh_command() {
     $host = $NC_CONFIG["remote_host"];
     $key = get_private_key_file($user);
     
-    # The option BatchMode=yes is used to not asking for password
-    # StrictHostKeyChecking=no is used to not ask to include the host in .ssh/known_hosts file
+    //# The option BatchMode=yes is used to not asking for password
+    //# StrictHostKeyChecking=no is used to not ask to include the host in .ssh/known_hosts file
     return "ssh -n -i $key -o BatchMode=yes -o StrictHostKeyChecking=no $user@$host ";
 }
 
@@ -156,8 +156,8 @@ function get_used_space_remote() {
     include "neurocloud/config.inc.php";
     $cmd = create_ssh_command() . " df -h " . $NC_CONFIG['remote_mount'];
     $lastrow = exec($cmd);
-    # example of lastrow : 
-    # korempba:/nilab0      2.0T   28G  1.9T   2% /nilab0
+    //# example of lastrow : 
+    //# korempba:/nilab0      2.0T   28G  1.9T   2% /nilab0
     
     if (is_string($lastrow)) {
         $spl = preg_split("/\s+/", $lastrow);
@@ -166,7 +166,7 @@ function get_used_space_remote() {
             $ret["total"] = $spl[1];
             $ret["used"] = $spl[2];
             $ret["free"] = $spl[3];
-            $ret["percent"] = substr($spl[4],0,-1); # omit the % character
+            $ret["percent"] = substr($spl[4],0,-1); //# omit the % character
             
             return $ret;
         }
@@ -410,25 +410,25 @@ function get_queue_info($qsub_jobname) {
          */
         
         if ($xml->queue_info->job_list->count() == 0 && $xml->job_info->job_list->count() == 0) {
-            #$return_string = "No running SGE jobs in queue for job_id " . $qsub_jobname;
+            //#$return_string = "No running SGE jobs in queue for job_id " . $qsub_jobname;
             return $return_string;
         } else {
-            #$return_string = "Running SGE jobs:\n";
+            //#$return_string = "Running SGE jobs:\n";
 
             foreach ($xml->queue_info->job_list as $job) {
                 // check if the SGE job name contains the generated job id for this neurocloud job
                 if (strpos($job->JB_name, $qsub_jobname)) {
-                    #$return_string = $return_string . $job->JB_name . "\n";
+                    //#$return_string = $return_string . $job->JB_name . "\n";
                     $return_string[1] = $return_string[1] + 1;
                 }
             }
 
-            #$return_string = $return_string . "\nQueued SGE jobs:\n";
+            //#$return_string = $return_string . "\nQueued SGE jobs:\n";
 
             foreach ($xml->job_info->job_list as $job) {
                 // check if the SGE job name contains the generated job id for this neurocloud job
                 if (strpos($job->JB_name, $qsub_jobname)) {
-                    #$return_string = $return_string . $job->JB_name . "\n";
+                    //#$return_string = $return_string . $job->JB_name . "\n";
                     $return_string[0] = $return_string[0] + 1;
                 }
             }

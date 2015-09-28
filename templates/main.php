@@ -72,7 +72,7 @@ if ($dh) {
             <tr>
                 
             <?php
-            # TODO: gli script con gli spazi nel nome non sono permessi, perché lanciandoli via SSH vengono parsati come due comandi
+            //# TODO: gli script con gli spazi nel nome non sono permessi, perché lanciandoli via SSH vengono parsati come due comandi
             if (strpos($s, " ") !== false) {
             ?>
                         
@@ -90,7 +90,7 @@ if ($dh) {
             </td>
             <td>
                 <?php 
-                if (is_file(get_private_key_file(OC_User::getUser())) || $NC_CONFIG['default_exec_type'] === 'local') { # checking if the user can run scripts
+                if (is_file(get_private_key_file(OC_User::getUser())) || $NC_CONFIG['default_exec_type'] === 'local') { //# checking if the user can run scripts
                 ?>
                 <span ><a href="<?php echo $exec_link ?>" title="Click to execute this script">Run</a></span>
                 &nbsp;

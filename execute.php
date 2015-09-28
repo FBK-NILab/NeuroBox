@@ -11,8 +11,8 @@
 require_once 'lib/common.php';
 
 
-# TODO: SUBSTITUTE WITH REAL CONFIG VALUE !!!
-#OC_Config::setValue("nc_exec_env_root" ,"/tmp/neurocloud");
+//# TODO: SUBSTITUTE WITH REAL CONFIG VALUE !!!
+//#OC_Config::setValue("nc_exec_env_root" ,"/tmp/neurocloud");
 
 
 function create_job_id($study_name, $script_name) {
@@ -57,12 +57,12 @@ function create_execution_env($study_name, $script_name) {
     
     OC_Filesystem::mkdir("$study_name/results/$jobid");
 
-    # le dir /data e /results sono link simbolici alle vere directory del caso di studio
+    //# le dir /data e /results sono link simbolici alle vere directory del caso di studio
     mkdir($job_dir . "/pipeline");
     symlink($datadir, $job_dir . "/data");
     symlink($resultsdir, $job_dir . "/results");
 
-    # creo il file in cui verrà rediretto lo standard output
+    //# creo il file in cui verrà rediretto lo standard output
     $date = date("Y-m-d H:i:s");
     OC_Filesystem::file_put_contents(get_job_output_file($study_name, $jobid), "Standard output for job $jobid, run at $date\n");
     
@@ -70,7 +70,7 @@ function create_execution_env($study_name, $script_name) {
     
     save_job_info($study_name, $jobid, $jobinfo);
     
-    # copia gli script del caso di studio nella pipeline
+    //# copia gli script del caso di studio nella pipeline
     copy_dir($pipelinedir, $job_dir . "/pipeline");
     
     return $jobid;
@@ -87,7 +87,7 @@ function execute_script_local($workdir, $cmd, $study, $jobid) {
     
     if (chdir($workdir)) {
         $outfile = get_absolute_path(get_job_output_file($study, $jobid));
-        # things that are needed to proc_open, see http://it2.php.net/manual/en/function.proc-open.php
+        //# things that are needed to proc_open, see http://it2.php.net/manual/en/function.proc-open.php
         $pipes = 0;
         $descriptors = array(
             0 => array('pipe', 'r'),
@@ -98,7 +98,7 @@ function execute_script_local($workdir, $cmd, $study, $jobid) {
         
         $env["HOME"] = get_local_exec_dir(OC_User::getUser());
         $env["PATH"] = $_SERVER["PATH"];
-        # use a UNIX command to get the current user name
+        //# use a UNIX command to get the current user name
         $env["USER"] = exec("whoami"); 
 
         chmod($cmd, 0755);
@@ -155,7 +155,7 @@ function execute_script_remote($study, $jobid, $workdir, $rerun, $cmd, $args = "
     $jobid_qsub = 'j' . str_replace(".","_", $jobid);
     $orig_cmd = $cmd;
     
-    # check if the command is a python script
+    //# check if the command is a python script
     if (is_python_script($cmd) !== false) {
         // prepend the python script with our command
         
@@ -177,7 +177,7 @@ function execute_script_remote($study, $jobid, $workdir, $rerun, $cmd, $args = "
         
         $cmd = $NC_CONFIG["python-bin"] . " " . $cmd;
     } elseif (strpos($cmd, ".sh") !== false) {
-        #$cmd = "qsub -cwd -l mf=1.4G -N $jobid_qsub -sync y -o results/nc_stdout.log -e results/nc_stdout.log " . $cmd;
+        //#$cmd = "qsub -cwd -l mf=1.4G -N $jobid_qsub -sync y -o results/nc_stdout.log -e results/nc_stdout.log " . $cmd;
         $cmd = "/bin/bash " . $cmd;
         $args = $jobid_qsub;
     }
@@ -218,7 +218,7 @@ if (isset($_GET["script"]) && isset($_GET["study"])) {
     
     $space = get_used_space_remote();
     if (is_array($space) && (int)$space['percent'] > (int)$NC_CONFIG['minimum_exec_space']) {
-        # Redirect to neurocloud app index , showing an error message
+        //# Redirect to neurocloud app index , showing an error message
         $link = OC_Helper::linkTo("neurocloud", "index.php", array("error" => "Cannot execute script, low free space in remote server.<br>Contact administration or delete old jobs"));
         header("Location: " . $link);
         exit();
@@ -248,7 +248,7 @@ if (isset($_GET["script"]) && isset($_GET["study"])) {
             $exec_dir = get_job_exec_dir($job_id);
             $pid = execute_script_local($exec_dir, "pipeline" . DIRECTORY_SEPARATOR . $script, $study, $job_id);
         }
-        # Redirect to neurocloud app index , showing an info (or error) message
+        //# Redirect to neurocloud app index , showing an info (or error) message
         if ($pid) {
             $link = OC_Helper::linkTo("neurocloud", "index.php", array("jobid" => $job_id, "pid" => $pid, "action" => "launch"));
         } else {
@@ -256,7 +256,7 @@ if (isset($_GET["script"]) && isset($_GET["study"])) {
         }
         header("Location: " . $link);
     } else {
-        # Redirect to neurocloud app index , showing an error message
+        //# Redirect to neurocloud app index , showing an error message
         $link = OC_Helper::linkTo("neurocloud", "index.php", array("error" => "Sync is in progress, cannot execute script"));
         header("Location: " . $link);
     }

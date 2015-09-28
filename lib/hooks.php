@@ -242,7 +242,7 @@ class OC_Neurocloud {
         $array = PersistentMap::get_paths();
         foreach(array_keys($array) as $key) {
             if (strpos($key, $study) > 0) {
-                #$syncing = self::$SYNC_STATUS[$key];
+                //#$syncing = self::$SYNC_STATUS[$key];
                 $syncing = $array[$key];
                 if ($syncing) {
                     return false;

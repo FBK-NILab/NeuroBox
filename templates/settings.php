@@ -24,7 +24,7 @@ function get_public_key() {
 <div class="personalblock">
     <strong>NeuroBox users public keys</strong>
 <?php
-/*
+/**
 $datadir = OC_Config::getValue("datadirectory");
 $files = array();
 $dh = opendir($datadir);
