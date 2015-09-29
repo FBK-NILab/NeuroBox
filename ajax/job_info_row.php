@@ -20,7 +20,7 @@ $outputid = $_GET['outputid'];
 $rowid = $_GET['rowid'];
 
 
-# check if we have to print the <tr> elements (we do not print them if this file is called from a AJAX call
+//# check if we have to print the <tr> elements (we do not print them if this file is called from a AJAX call
 if (isset($_GET["print_tr"])) {
     $print_tr = $_GET["print_tr"];
 } else {
@@ -80,7 +80,7 @@ $showoutputjs = "javascript:show_output('" . $outputid . "', '" . $output_file .
 $killjs = OC_Helper::linkTo("neurocloud", "ajax/kill_job.php", array("study" => $file, "jobid" => $job, "redirect" => 1));
 $refreshstatusjs = "javascript:refresh_job_status('" . $rowid . "','" . $file . "','" . $job . "','" . $outputid . "')";
 $showjobinfojs = "javascript:show_output('" . $outputid . "','". get_job_info_file($file, $job) . "', true)";
-#$queueinfojs = "javascript:show_queue_info('" . $outputid . "','". $jobinfo['qsub_jobname'] . "', true)";
+//#$queueinfojs = "javascript:show_queue_info('" . $outputid . "','". $jobinfo['qsub_jobname'] . "', true)";
 $deletejs = "javascript:delete_results('" . $rowid . "','" . $file . "','" . $job . "')";
 
 $script = isset($jobinfo["script"]) ? basename($jobinfo["script"]) : false;

@@ -9,10 +9,10 @@
  */
 
 
-# first, clear the "fast" cache, to make sure that missing DB items are inserted/updated
+//# first, clear the "fast" cache, to make sure that missing DB items are inserted/updated
 OC_Cache::clear();
 
-# then scan the filesystem
+//# then scan the filesystem
 OC_FileCache::scan("");
 
 echo 'true';

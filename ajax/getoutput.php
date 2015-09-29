@@ -17,7 +17,7 @@ if (isset($_POST['json'])) {
 /*
  * max size of output file, to avoid reading a very big output and clogging the network
  */
-$MAX_SIZE = 1024 * 512; # "512k of memory should be enough for everyone"
+$MAX_SIZE = 1024 * 512; //# "512k of memory should be enough for everyone"
 $content = "";
 if (OC_Filesystem::is_file($filename) && OC_Filesystem::is_readable($filename)) {
     if (OC_Filesystem::filesize($filename) > $MAX_SIZE) {

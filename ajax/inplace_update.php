@@ -27,11 +27,11 @@ if (isset($_GET["debug"])) {
     $prefix = "/tmp/owncloud";
 }
 
-# backup current installation
+//# backup current installation
 echo "Backup of current version in $datadir\n";
 exec("tar czf " . $datadir . "/owncloud_bkp$(date +%Y%m%d).tar.gz $root");
 
-# download latest version
+//# download latest version
 echo "Downloading last version\n";
 $curl = curl_init($url);
 $fp = fopen("/tmp/owncloud-latest.tar.bz2", "w");
@@ -42,7 +42,7 @@ curl_exec($curl);
 curl_close($curl);
 fclose($fp);
 
-# TODO: check version MD5
+//# TODO: check version MD5
 $md5_try = file_get_contents($url . ".md5");
 if (strlen($md5_try) > 32) {
     $md5_try = substr($md5_try, 0, 32);
@@ -56,7 +56,7 @@ if ($md5_try !== $md5) {
 }
 
 
-# unpack latest version
+//# unpack latest version
 echo "Unpacking last version\n";
 exec("mkdir $datadir/owncloud_latest; tar -C $datadir/owncloud_latest -xjf /tmp/owncloud-latest.tar.bz2");
 
