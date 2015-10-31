@@ -13,7 +13,7 @@ OC_App::addNavigationEntry(array(
     'order' => 74, 
     'href' => OC_Helper::linkTo('neurocloud', 'index.php'), 
     'icon' => OC_Helper::imagePath('neurocloud', 'neurocloud.png'), 
-    'name' => 'Neurocloud'));
+    'name' => 'Neurobox'));
 
 /**
  * register the classpath
