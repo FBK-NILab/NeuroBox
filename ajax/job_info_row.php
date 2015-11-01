@@ -78,13 +78,13 @@ if (($status == JobStatus::$FINISHED || $status === JobStatus::$KILLED)) {
 
 // check the transition of a job from RUNNING to FINISHED  in order to create and destroy directory
 // to make owncloud sync its file index.
-//if ($precstatus === JobStatus::$RUNNING && $status === JobStatus::$FINISHED)
-//{
-//    $newdir = OC_User::getHome(OC_User::getUser()).DIRECTORY_SEPARATOR."files".DIRECTORY_SEPARATOR.$job."_dummydir";
-//    mkdir($newdir);
-//    sleep(3);
-//    rmdir($newdir);
-//}
+if ($precstatus === JobStatus::$RUNNING && $status === JobStatus::$FINISHED)
+{
+    $newdir = OC_User::getHome(OC_User::getUser()).DIRECTORY_SEPARATOR."files".DIRECTORY_SEPARATOR.$job."_dummydir";
+    mkdir($newdir);
+    sleep(3);
+    rmdir($newdir);
+}
 
 $showoutputjs = "javascript:show_output('" . $outputid . "', '" . $output_file . "')";
 $killjs = OC_Helper::linkTo("neurocloud", "ajax/kill_job.php", array("study" => $file, "jobid" => $job, "redirect" => 1));
