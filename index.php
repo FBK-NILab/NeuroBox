@@ -1,4 +1,9 @@
 <?php
+// add to $CONFIG array settings regarding the security bug fix
+//require_once('config.php');
+//if ( ! in_array("custom_csp_policy", OC_Config::getKeys()) ) {
+//	OC_Config::setValue('custom_csp_policy', 'default-src \'self\'; script-src \'self\' \'unsafe-eval\' \'unsafe-inline\'; style-src \'self\' \'unsafe-inline\'; frame-src *; img-src *; font-src \'self\' data:; media-src *');
+//}
 
 require_once('base.php');
 
